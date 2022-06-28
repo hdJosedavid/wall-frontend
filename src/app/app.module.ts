@@ -6,8 +6,7 @@ import { AppComponent } from './app.component';
 import { BusinessComponent } from './layouts/business/business.component';
 import { SystemComponent } from './layouts/system/system.component';
 import { RouterModule } from '@angular/router';
-import { IconsComponent } from './shared/icons/icons.component';
-import { CommentaryComponent } from './shared/commentary/commentary.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +17,7 @@ import { CommentaryComponent } from './shared/commentary/commentary.component';
   imports: [
     BrowserModule,
     RouterModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

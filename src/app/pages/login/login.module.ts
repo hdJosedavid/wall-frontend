@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SocialComponent } from 'src/app/shared/social/social.component';
 
 const routes: Routes =[{
   path: '',
@@ -13,6 +14,7 @@ const routes: Routes =[{
 @NgModule({
   declarations: [
     LoginComponent,
+    SocialComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
