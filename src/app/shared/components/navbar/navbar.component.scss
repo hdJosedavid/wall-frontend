@@ -61,7 +61,6 @@ nav .menu {
   right: 0;
   bottom: 0;
   box-shadow: inset -3px -3px 7px #ffffff,
-    inset 3px 3px 5px #ceced1;
 }
 
 .center {
@@ -85,8 +84,9 @@ nav .menu {
   color: #31344b;
 }
 
-.menu ul a:hover {
+.menu ul a:hover{
   color: $primary;
+  font-weight: bold;
 }
 
 nav label.btn {
