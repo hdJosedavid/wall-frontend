@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <app-post-news></app-post-news>
-<section data-theme="default">
+<section data-theme="default" [ngClass]="theme ? '': 'dark-theme'">
   <div class="comment-wrapper">
     <div class="container">
       <div class="center-block">
@@ -8,7 +8,10 @@
           <div class="box-theme-option-inner">
             <div class="addonz-form-inline">
               <label class="addonz-switch">
-                <input class="addonz-switch-input dark" type="checkbox" /><span
+                <input (click)="changeTheme()"
+                  class="addonz-switch-input dark"
+                  type="checkbox"
+                  /><span
                   class="addonz-switch-inner">Light</span>
               </label>
             </div>

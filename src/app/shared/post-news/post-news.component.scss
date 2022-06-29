@@ -24,6 +24,19 @@ section {
   height: 50vh;
   // border: 1px solid black;
   @extend %center;
+  flex-direction: column;
+}
+
+.title {
+  margin: 2em 0;
+  justify-content: center;
+  flex-direction: column;
+
+  & h2 {
+    font-family: 'Montserrat', serif;
+    font-weight: 700;
+    font-size: xx-large
+  }
 }
 
 .box {
