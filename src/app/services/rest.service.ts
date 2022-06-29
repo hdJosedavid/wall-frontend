@@ -12,7 +12,7 @@ export class RestService {
     return this.http.get(url);
   }
 
-  public post(url: string, body: any) {
-    return this.http.post(url, body);
+  public post(url: string, data: any) {
+    return this.http.post(url, data);
   }
 }

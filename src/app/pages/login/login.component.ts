@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LocalStorageService } from '@app/services/local-storage.service';
@@ -48,24 +48,25 @@ export class LoginComponent implements OnInit {
 
   public signUp(): void {
     console.log("signUp", this.loginForm.value);
-    this.RestService.post(`${environment.apiUser}/api/auth/signup`,
-      this.signUpForm.value)
-      .subscribe((res: any) => {
-        console.log('Sent Exitoso!!');
-        this.router.navigate(['/home'])
-      });
+    this.RestService.post(
+      `${environment.apiUser}/api/auth/signup`,
+      this.signUpForm.value
+    ).subscribe((res: any) => {
+      // this.router.navigateByUrl('/home');
+    });
+    console.log('Success!!');
+    this.status = !this.status;
   }
 
   public login(): void {
-    // console.log("logIn", this.loginForm.value, `${environment.apiUser}/api/auth/login`);
     this.RestService.post(
       `${environment.apiUser}/api/auth/login`,
       this.loginForm.value
     ).subscribe((res: any) => {
       console.info('Login Exitoso!!');
       this.cookieService.set('token_access', res.authenticationToken, 4, '/home');
-      this.localStorageService.setCredentials(res)
-      this.router.navigate(['/home'])
+      this.localStorageService.setCredentials(res);
+      this.router.navigate(['/home']);
     });
   };
 

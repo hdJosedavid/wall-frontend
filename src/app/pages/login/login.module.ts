@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SocialComponent } from '@app/shared/components/social/social.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@app/shared/shared.module';
 
 const routes: Routes = [{
   path: '',
@@ -14,12 +14,12 @@ const routes: Routes = [{
 @NgModule({
   declarations: [
     LoginComponent,
-    SocialComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [LoginComponent]

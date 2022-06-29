@@ -16,8 +16,8 @@ export class LocalStorageService {
   constructor(
   ) { }
 
-  public getTokenID(): string | null{
-    return localStorage.getItem(TOKEN_ID);
+  public getTokenID(): string{
+    return localStorage.getItem('data')!;
   }
   public setName(data:string){
     localStorage.setItem(TOKEN_ID, data);  

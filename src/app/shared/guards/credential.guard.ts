@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { LocalStorageService } from '@app/services/local-storage.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 
@@ -10,6 +11,7 @@ export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
 
   constructor(
     private cookieService: CookieService,
+    private localStorageService: LocalStorageService,
     private router: Router
   ) { }
 
@@ -17,9 +19,11 @@ export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const cookie = this.cookieService.check('token_access');
-    this.redirect(cookie, '/login');
-    return cookie
+    const storage = JSON.parse(this.localStorageService.getTokenID());
+    // const cookie = this.cookieService.check('token_access');
+    // this.redirect(cookie, '/home');
+    const status: boolean = storage !== null && storage.authenticationToken !== null;
+    return status;
   }
 
   canDeactivate(
@@ -28,9 +32,11 @@ export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const tmp = this.localStorageService.getCredentials()
+    console.log(tmp);
     const cookie = this.cookieService.check('token_access');
     this.redirect(cookie, '/home');
-    return cookie
+    return true
   }
 
   redirect(flag: boolean, path: string): any {
