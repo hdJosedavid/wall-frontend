@@ -7,10 +7,15 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  public theme: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeTheme(){
+    console.log(this.theme)
+    this.theme = !this.theme;
   }
 
 }
