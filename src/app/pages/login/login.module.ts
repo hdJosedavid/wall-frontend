@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';  
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SocialComponent } from 'src/app/shared/social/social.component';
+import { SocialComponent } from '@shared/social/social.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes =[{
+const routes: Routes = [{
   path: '',
   component: LoginComponent,
-  data: { title: 'Login'}
+  data: { title: 'Login' }
 }]
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ const routes: Routes =[{
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    FormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [LoginComponent]
