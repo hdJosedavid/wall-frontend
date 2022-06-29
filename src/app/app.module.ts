@@ -19,7 +19,7 @@ import { SystemComponent } from './layouts/system/system.component';
     BrowserModule,
     RouterModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

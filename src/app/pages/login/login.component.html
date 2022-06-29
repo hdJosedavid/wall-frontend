@@ -21,7 +21,7 @@
     </div>
     <div [ngClass]="status ? 'is-txl is-z200 is-hidden': ''" class="container
       b-container">
-      <form (ngSubmit)="login()" autocomplete="off" class="form" id="b-form"
+      <form (ngSubmit)="login()" autocomplete="off" class="form" id="form"
         [formGroup]="loginForm">
         <h2 class="form_title title">Sign in to Website</h2>
         <app-social class="form__icons" [networks]= 'networks'></app-social>
