@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   }
 
   changeTheme(){
-    console.log(this.theme)
     this.theme = !this.theme;
   }
 
