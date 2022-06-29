@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { LocalStorageService } from '@app/services/local-storage.service';
+import { RestService } from '@app/services/rest.service';
 
+import { environment } from '@environment/environment'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,28 +14,63 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   public status: boolean = true;
-
   public networks: string[] = [];
 
-  constructor() { }
+  public signUpForm: FormGroup = this.formBuilder.group({
+    // firstname: [, [Validators.required]],
+    // lastname: [, [Validators.required]],
+    username: [, [Validators.required, Validators.minLength(5)]],
+    email: [, [Validators.required, Validators.minLength(8), Validators.email]],
+    password: [, [Validators.required, Validators.minLength(5)]],
+  });
+
+  public loginForm: FormGroup = this.formBuilder.group({
+    username: [, [Validators.required]],
+    password: [, [Validators.required, Validators.minLength(5)]],
+  })
+
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private cookieService: CookieService,
+    private localStorageService: LocalStorageService,
+    private RestService: RestService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.networks = ['facebook', 'linkedin', 'twitter'] 
+    this.networks = ['facebook', 'linkedin', 'twitter']
   }
 
-  public swTemplate(): void {
-    console.log(323232, this.status);
-    this.status = !this.status;
+  public isValidField(field: string): boolean | null {
+    return this.loginForm.controls[field].errors && this.signUpForm.controls[field].touched;
   }
 
   public signUp(): void {
+    console.log("signUp", this.loginForm.value);
+    this.RestService.post(`${environment.apiUser}/api/auth/signup`,
+      this.signUpForm.value)
+      .subscribe((res: any) => {
+        console.log('Sent Exitoso!!');
+        this.router.navigate(['/home'])
+      });
   }
 
   public login(): void {
+    // console.log("logIn", this.loginForm.value, `${environment.apiUser}/api/auth/login`);
+    this.RestService.post(
+      `${environment.apiUser}/api/auth/login`,
+      this.loginForm.value
+    ).subscribe((res: any) => {
+      console.info('Login Exitoso!!');
+      this.cookieService.set('token_access', res.authenticationToken, 4, '/home');
+      this.localStorageService.setCredentials(res)
+      this.router.navigate(['/home'])
+    });
   };
 
   public changeForm = (e: any) => {
-    this.swTemplate();
+    this.status = !this.status;
   }
 
 }

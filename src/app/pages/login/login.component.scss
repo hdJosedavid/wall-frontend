@@ -7,6 +7,7 @@ $black: #181818;
 $primary: #4B70E2;
 $purple: #7F56E3;
 $info: #40BEE3;
+// $danger: #E36289;
 
 $transition: 1.25s;
 
@@ -144,6 +145,12 @@ section {
     line-height: 2;
   }
 }
+
+// .little-span {
+//   justify-content: flex-start;
+//   font-size: smaller;
+//   color: $danger;
+// }
 
 .title {
   font-size: 34px;
