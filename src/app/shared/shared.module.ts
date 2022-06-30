@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommentaryComponent } from './components/commentary/commentary.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialComponent } from './components/social/social.component';
@@ -10,28 +9,29 @@ import { RepplyCommentComponent } from './components/media-comment/repply-commen
 import { MediaCommentFooterComponent } from './components/media-comment/media-comment-footer/media-comment-footer.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { PostNewsComponent } from './post-news/post-news.component';
+import { MediaCommentBodyComponent } from './components/media-comment/media-comment-body/media-comment-body.component';
 
 @NgModule({
   declarations: [
-    CommentaryComponent,
     FooterComponent,
     NavbarComponent,
     SocialComponent,
     ColorPaletteComponent,
     MediaCommentComponent,
-    RepplyCommentComponent,
+    MediaCommentBodyComponent,
     MediaCommentFooterComponent,
+    RepplyCommentComponent,
     SpinnerComponent,
     PostNewsComponent
   ],
   exports: [
-    CommentaryComponent,
     FooterComponent,
     NavbarComponent,
     ColorPaletteComponent,
     MediaCommentComponent,
-    RepplyCommentComponent,
+    MediaCommentBodyComponent,
     MediaCommentFooterComponent,
+    RepplyCommentComponent,
     SocialComponent,
     SpinnerComponent,
     PostNewsComponent

@@ -2,40 +2,11 @@
   <a class="avatar-content"
     href="javascript://">
     <img class="avatar"
-      src="https://randomuser.me/api/portraits/women/40.jpg" width="70"
+      [src]="data.photo" width="70"
       height="70" />
   </a>
   <div class="media-content">
-    <div class="media-comment-body">
-      <div class="media-option">
-        <a class="ripple-grow"
-          id="dropdownMenuButton" href="javascript://"
-          data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          <svg class="ripple-icon" width="28" height="28"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-            viewBox="0 0 24 24">
-            <g fill="currentColor">
-              <circle cx="5" cy="12" r="2"></circle>
-              <circle cx="12" cy="12" r="2"></circle>
-              <circle cx="19" cy="12" r="2"></circle>
-            </g>
-          </svg>
-        </a>
-      </div>
-      <div class="media-comment-data-person">
-        <a class="media-comment-name" href="javascript://">
-          Iris Churman
-        </a>
-        <span class="text-muted">21 h</span>
-      </div>
-      <div class="media-comment-text">
-        Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua.
-      </div>
-    </div>
+    <app-media-comment-body [data]="data"></app-media-comment-body>
     <app-media-comment-footer></app-media-comment-footer>
     <a class="collapse-repply"
       href="javascript://">
@@ -47,6 +18,6 @@
       </svg>
       Ver 45 respuestas
     </a>
-    <app-repply-comment></app-repply-comment>
+    <app-repply-comment [items] = "data.items"></app-repply-comment>
   </div>
 </div>

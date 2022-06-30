@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-repply-comment',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repply-comment.component.scss']
 })
 export class RepplyCommentComponent implements OnInit {
-
+  @Input() items: any[] = [];
   constructor() { }
 
   ngOnInit(): void {

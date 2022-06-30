@@ -1,40 +1,13 @@
-<div class="media-comment">
-  <a class="avatar-content" href="javascript://">
-    <img class="avatar"
-      src="https://randomuser.me/api/portraits/men/55.jpg"
+<div *ngFor="let item of items">
+  <div class="media-comment">
+    <a class="avatar-content" href="javascript://">
+      <img class="avatar"
+      [src]="item.photo"
       width="55" height="55" />
-  </a>
-  <div class="media-content">
-    <div class="media-comment-body">
-      <div class="media-option">
-        <a class="ripple-grow"
-          id="dropdownMenuButton" href="javascript://"
-          data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          <svg class="ripple-icon" width="28" height="28"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-            viewBox="0 0 24 24">
-            <g fill="currentColor">
-              <circle cx="5" cy="12" r="2"></circle>
-              <circle cx="12" cy="12" r="2"></circle>
-              <circle cx="19" cy="12" r="2"></circle>
-            </g>
-          </svg>
-        </a>
-      </div>
-      <div class="media-comment-data-person">
-        <a class="media-comment-name" href="javascript://">
-          Jhon Doe
-        </a>
-        <span class="text-muted">25 min</span>
-      </div>
-      <div class="media-comment-text">
-        Sit amet nibh libero, in
-        gravida nulla. Nulla vel metus scelerisque ante
-        sollicitudin. Cras purus odio, vestibulum in vulputate.
-      </div>
+    </a>
+    <div class="media-content">
+      <app-media-comment-body [data]="item"></app-media-comment-body>
+      <app-media-comment-footer [reactions]="item.reactions"></app-media-comment-footer>
     </div>
-    <app-media-comment-footer></app-media-comment-footer>
   </div>
 </div>

@@ -13,7 +13,8 @@ $size-card: 300px;
 
 // HTML
 section {
-  background: $bg-white;
+  background-color: var(--theme-color-blue);
+  background-image: url('/assets/images/bg.jpg');
   font-family: 'Roboto', sans-serif;
   color: rgba(51, 51, 51, 1);
   padding: 0%;
@@ -25,11 +26,11 @@ section {
   height: 50vh;
   // border: 1px solid black;
   @extend %center;
-  flex-direction: column;
+  // flex-direction: column;
 }
 
 .title {
-  margin: 2em 0;
+  margin: 2em 10em;
   justify-content: center;
   flex-direction: column;
 
