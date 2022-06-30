@@ -44,9 +44,15 @@ export class MediaCommentComponent implements OnInit {
       },
     }]
   }
+
+  public toggle: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  swToggle(): void {
+    this.toggle = !this.toggle;
   }
 
 }

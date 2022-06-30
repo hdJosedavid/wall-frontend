@@ -10,8 +10,6 @@ export class MediaCommentBodyComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(1231, this.data)
-  }
+  ngOnInit(): void { }
 
 }
