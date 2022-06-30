@@ -1,0 +1,31 @@
+<div class="media-comment-body">
+  <div class="media-option">
+    <a class="ripple-grow"
+      id="dropdownMenuButton" href="javascript://"
+      data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      <svg class="ripple-icon" width="28" height="28"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+        viewBox="0 0 24 24">
+        <g fill="currentColor">
+          <circle cx="5" cy="12" r="2"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="19" cy="12" r="2"></circle>
+        </g>
+      </svg>
+    </a>
+  </div>
+  <div class="media-comment-data-person">
+    <a class="media-comment-name" href="javascript://">
+      {{data.name}}
+    </a>
+    <span class="text-muted">21 h</span>
+  </div>
+  <div class="media-comment-text">
+    {{data.text}}
+  </div>
+  <div class="media-comment-image" *ngIf="data.image">
+    <img [src]="data.image" alt="comment-image">
+  </div>
+</div>

@@ -91,7 +91,7 @@ section {
   @if($enable-body-flex) {
     display: flex;
     flex-direction: column;
-    min-height: 60vh;
+    min-height: 70vh;
 
     .footer {
       margin-top: auto;
@@ -498,6 +498,20 @@ $addonz-switch-input-disabled-more-addonz-switch-inner-before-bg: fade-out(#343a
   // text
   .media-comment-text {
     color: var(--media-comment-body-color);
+  }
+
+  // image
+  .media-comment-image {
+    display: flex;
+    align-items: center;
+    aspect-ratio: 16/9;
+    border-radius: 7rem;
+    height: auto;
+    justify-content: center;
+    justify-items: center;
+    object-fit: cover;
+    padding: .5rem 0;
+    width: 100%;
   }
 
   .media-comment-name {
