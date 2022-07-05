@@ -33,7 +33,6 @@ export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
     nextState?: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const tmp = this.localStorageService._getCredentials()
-    console.log(tmp);
     const cookie = this.cookieService.check('token_access');
     this.redirect(cookie, '/home');
     return true
