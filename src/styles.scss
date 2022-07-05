@@ -87,7 +87,7 @@ $breakpoints: (
 
 $enable-body-flex: true;
 
-section {
+article {
   @if($enable-body-flex) {
     display: flex;
     flex-direction: column;
@@ -506,6 +506,7 @@ $addonz-switch-input-disabled-more-addonz-switch-inner-before-bg: fade-out(#343a
     align-items: center;
     aspect-ratio: 16/9;
     border-radius: 7rem;
+    max-width: fit-content;
     height: auto;
     justify-content: center;
     justify-items: center;

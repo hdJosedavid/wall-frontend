@@ -1,31 +1,28 @@
 <app-navbar></app-navbar>
-<app-post-news></app-post-news>
-<section data-theme="default" [ngClass]="theme ? '': 'dark-theme'">
-  <div class="comment-wrapper">
-    <div class="container">
+<!-- <app-post-news></app-post-news> -->
+<main data-theme="default" [ngClass]="theme ? '': 'dark-theme'">
+  <article class="comment-wrapper">
+    <section class="container">
       <div class="center-block">
         <div class="box-theme-option">
           <div class="box-theme-option-inner">
             <div class="addonz-form-inline">
               <label class="addonz-switch">
-                <input (click)="changeTheme()"
-                  class="addonz-switch-input dark"
-                  type="checkbox"
-                  /><span
-                  class="addonz-switch-inner">Light</span>
+                <input (click)="changeTheme()" class="addonz-switch-input dark" type="checkbox" />
+                <span class="addonz-switch-inner">{{nameTheme}}</span>
               </label>
             </div>
             <app-color-palette></app-color-palette>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="center-block">
-        <app-media-comment></app-media-comment>
-        <app-media-comment></app-media-comment>
+    </section>
+    <section class="container">
+      <div class="center-block" *ngFor="let data of bulletins">
+        <app-media-comment [data]='data'></app-media-comment>
       </div>
-    </div>
-  </div>
-</section>
+      <app-spinner></app-spinner>
+    </section>
+  </article>
+</main>
 <app-footer></app-footer>
