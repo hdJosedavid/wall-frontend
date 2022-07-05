@@ -18,9 +18,8 @@ export class LoginComponent implements OnInit {
   public status: boolean = true;
   public networks: string[] = [];
 
+  // TODO: Adding firstName and Lastname
   public signUpForm: FormGroup = this.formBuilder.group({
-    // firstname: [, [Validators.required]],
-    // lastname: [, [Validators.required]],
     username: [, [Validators.required, Validators.minLength(5)]],
     email: [, [Validators.required, Validators.minLength(8), Validators.email]],
     password: [, [Validators.required, Validators.minLength(5)]],
@@ -56,7 +55,6 @@ export class LoginComponent implements OnInit {
     ).subscribe((res: any) => {
       // this.router.navigateByUrl('/home');
     });
-    console.log('Success!!');
     this.status = !this.status;
   }
 
@@ -71,10 +69,9 @@ export class LoginComponent implements OnInit {
           throw new Error('Value expected!');
         }
         return response;
-      }),retry(2),
+      }), retry(2),
       catchError(() => of([]))
     ).subscribe((res: any) => {
-      console.info('Login Exitoso!!');
       this.cookieService.set('token_access', res.authenticationToken, 4, '/home');
       this.localStorageService._setCredentials(res);
       this.router.navigate(['/home']);
@@ -84,5 +81,4 @@ export class LoginComponent implements OnInit {
   public changeForm = (e: any) => {
     this.status = !this.status;
   }
-
 }

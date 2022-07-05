@@ -1,4 +1,4 @@
 export const THEME_TYPES = {
-    LIGTH: 'Ligth',
+    LIGHT: 'Light',
     DARK: 'Dark'
 }

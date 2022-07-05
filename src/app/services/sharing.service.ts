@@ -6,16 +6,16 @@ import { data } from './initial-data/bulletin.data';
 
 @Injectable()
 export class SharingService {
-  public sharingObservablePrivate: BehaviorSubject<Bulletin>;
+  public sharingObservable: BehaviorSubject<Bulletin>;
   constructor() {
-    this.sharingObservablePrivate = new BehaviorSubject<Bulletin>(data);
+    this.sharingObservable = new BehaviorSubject<Bulletin>(data);
   }
 
   public get getSharingObservable() {
-    return this.sharingObservablePrivate.asObservable();
+    return this.sharingObservable.asObservable();
   }
 
   public set setSharingObservableData(data: Bulletin) {
-    this.sharingObservablePrivate.next(data);
+    this.sharingObservable.next(data);
   }
 }

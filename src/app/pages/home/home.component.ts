@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     private restService: RestService,
     public sharingService: SharingService
   ) {
-    this.nameTheme = THEME_TYPES.LIGTH;
+    this.nameTheme = THEME_TYPES.LIGHT;
     this.bulletins = data;
     this.data$ = sharingService.getSharingObservable;
     // sharingService.sharingObservableData = {content: "arsasars"};
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
 
   changeTheme() {
     this.theme = !this.theme;
-    this.nameTheme = !this.theme ? THEME_TYPES.DARK : THEME_TYPES.LIGTH;
+    this.nameTheme = !this.theme ? THEME_TYPES.DARK : THEME_TYPES.LIGHT;
   }
 
   private _getBulletin(): void {
@@ -67,9 +67,7 @@ export class HomeComponent implements OnInit {
     )
       .subscribe((response: any) => {
         // this.bulletins = response;
-        console.log('bulletins', response);
       });
-    console.log('Success!!');
   }
 
 }
