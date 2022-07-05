@@ -10,6 +10,7 @@ import { MediaCommentFooterComponent } from './components/media-comment/media-co
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PostNewsComponent } from './components/post-news/post-news.component';
 import { MediaCommentBodyComponent } from './components/media-comment/media-comment-body/media-comment-body.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MediaCommentBodyComponent } from './components/media-comment/media-comm
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule
   ],
 })
 

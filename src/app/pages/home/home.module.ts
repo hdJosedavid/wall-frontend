@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '@app/shared/shared.module';
+import { CoreModule } from '@app/core/core.module';
 import { HomeComponent } from './home.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 
@@ -24,7 +25,8 @@ const routes: Routes = [{
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [HomeComponent]

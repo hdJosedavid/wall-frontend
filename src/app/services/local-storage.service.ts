@@ -16,17 +16,17 @@ export class LocalStorageService {
   constructor(
   ) { }
 
-  public getTokenID(): string{
+  public _getTokenID(): string{
     return localStorage.getItem('data')!;
   }
-  public setName(data:string){
+  public _setName(data:string){
     localStorage.setItem(TOKEN_ID, data);  
   }
 
-  public getCredentials(): Credentials{
-    return JSON.parse(this.getTokenID()!);
+  public _getCredentials(): Credentials{
+    return JSON.parse(this._getTokenID()!);
   }
-  public setCredentials(data: Credentials){
+  public _setCredentials(data: Credentials){
     localStorage.setItem('data', JSON.stringify(data));  
   }
 }

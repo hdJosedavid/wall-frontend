@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LocalStorageService } from '@app/services/local-storage.service';
 import { RestService } from '@app/services/rest.service';
+import { of } from 'rxjs';
+import { map, retry, catchError } from 'rxjs/operators';
 
 import { environment } from '@environment/environment'
 @Component({
@@ -62,10 +64,19 @@ export class LoginComponent implements OnInit {
     this.RestService.post(
       `${environment.apiUser}/api/auth/login`,
       this.loginForm.value
+    ).pipe(
+      map((response: any) => {
+        if (!response) {
+          console.log('Error occurred.');
+          throw new Error('Value expected!');
+        }
+        return response;
+      }),retry(2),
+      catchError(() => of([]))
     ).subscribe((res: any) => {
       console.info('Login Exitoso!!');
       this.cookieService.set('token_access', res.authenticationToken, 4, '/home');
-      this.localStorageService.setCredentials(res);
+      this.localStorageService._setCredentials(res);
       this.router.navigate(['/home']);
     });
   };
