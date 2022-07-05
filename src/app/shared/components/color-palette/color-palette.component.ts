@@ -26,15 +26,4 @@ export class ColorPaletteComponent {
     ).subscribe((res: any) => { });
   }
 
-  public setBulletin(): void {
-    console.log("signUp", this.bulletinForm.value);
-    this.restService.post(
-      `${environment.apiBlog}/bulletins`,
-      this.bulletinForm.value
-    ).subscribe((res: any) => {
-      // this.router.navigateByUrl('/home');
-    });
-    console.log('Bulletin Success!!');
-  }
-
 }

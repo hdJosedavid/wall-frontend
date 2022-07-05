@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { map, retry, catchError } from 'rxjs/operators';
 
 import { environment } from '@environment/environment'
+import { SOCIAL_TYPES } from '@app/shared/constants/social';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -40,7 +41,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.networks = ['facebook', 'linkedin', 'twitter']
+    this.networks = [
+      SOCIAL_TYPES.FACEBOOK,
+      SOCIAL_TYPES.LINKEDIN,
+      SOCIAL_TYPES.TWITTER
+    ];
   }
 
   public isValidField(field: string): boolean | null {
@@ -52,9 +57,7 @@ export class LoginComponent implements OnInit {
     this.RestService.post(
       `${environment.apiUser}/api/auth/signup`,
       this.signUpForm.value
-    ).subscribe((res: any) => {
-      // this.router.navigateByUrl('/home');
-    });
+    ).subscribe((res: any) => { });
     this.status = !this.status;
   }
 
