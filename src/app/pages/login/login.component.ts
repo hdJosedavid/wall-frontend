@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
-import { LocalStorageService } from '@app/services/local-storage.service';
-import { RestService } from '@app/services/rest.service';
-import { of } from 'rxjs';
-import { map, retry, catchError } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
+import {LocalStorageService} from '@app/services/local-storage.service';
+import {RestService} from '@app/services/rest.service';
+import {of} from 'rxjs';
+import {catchError, map, retry} from 'rxjs/operators';
 
-import { environment } from '@environment/environment'
-import { SOCIAL_TYPES } from '@app/shared/constants/social';
+import {environment} from '@environment/environment'
+import {SOCIAL_TYPES} from '@app/shared/constants/social';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

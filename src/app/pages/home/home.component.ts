@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Bulletin } from '@app/services/interfaces';
-import { RestService } from '@app/services/rest.service';
-import { SharingService } from '@app/services/sharing.service';
-import { THEME_TYPES } from '@app/shared/constants/theme';
-import { environment } from '@environment/environment';
-import { Observable, of } from 'rxjs';
-import { catchError, map, retry } from 'rxjs/operators';
-import { data } from '../../services/initial-data/bulletin.data'
+import {Component, OnInit} from '@angular/core';
+import {Bulletin} from '@app/services/interfaces';
+import {RestService} from '@app/services/rest.service';
+import {SharingService} from '@app/services/sharing.service';
+import {THEME_TYPES} from '@app/shared/constants/theme';
+import {environment} from '@environment/environment';
+import {Observable, of} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {data} from '@app/services/initial-data/bulletin.data';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
 
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
     this.nameTheme = THEME_TYPES.LIGHT;
     this.bulletins = data;
     this.data$ = sharingService.getSharingObservable;
-    // sharingService.sharingObservableData = {content: "arsasars"};
   }
 
   ngOnInit(): void {
@@ -65,9 +64,7 @@ export class HomeComponent implements OnInit {
       }),
       catchError(() => of([]))
     )
-      .subscribe((response: any) => {
-        // this.bulletins = response;
-      });
+      .subscribe((response: any) => { });
   }
 
 }

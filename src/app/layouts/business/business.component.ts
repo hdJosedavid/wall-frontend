@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-business',
-  templateUrl: './business.component.html',
-  styleUrls: ['./business.component.scss']
+  templateUrl: './business.component.html'
 })
-export class BusinessComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class BusinessComponent {
 }

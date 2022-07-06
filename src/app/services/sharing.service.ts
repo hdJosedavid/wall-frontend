@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
-import { Bulletin } from './interfaces';
-import { data } from './initial-data/bulletin.data';
+import {Bulletin} from './interfaces';
+import {data} from './initial-data/bulletin.data';
 
 @Injectable()
 export class SharingService {

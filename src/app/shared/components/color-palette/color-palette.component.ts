@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RestService } from '@app/services/rest.service';
-import { environment } from '@environment/environment';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RestService} from '@app/services/rest.service';
+import {environment} from '@environment/environment';
 
 @Component({
   selector: 'app-color-palette',
