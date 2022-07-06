@@ -10,7 +10,7 @@ const routes: Routes = [{
   path: '',
   component: LoginComponent,
   data: { title: 'Login' }
-}]
+}];
 @NgModule({
   declarations: [
     LoginComponent,

@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BusinessComponent } from './layouts/business/business.component';
-import { SystemComponent } from './layouts/system/system.component';
-import { CredentialGuard } from './shared/guards/credential.guard';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {BusinessComponent} from './layouts/business/business.component';
+import {SystemComponent} from './layouts/system/system.component';
+import {CredentialGuard} from '@shared/guards/credential.guard';
 
 const routes: Routes = [{
   path: '', redirectTo: 'login', pathMatch: 'full'

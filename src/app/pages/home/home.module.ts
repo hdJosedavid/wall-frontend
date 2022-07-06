@@ -1,21 +1,21 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
 
-import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '@app/shared/shared.module';
-import { CoreModule } from '@app/core/core.module';
-import { HomeComponent } from './home.component';
-import { WelcomeComponent } from '../welcome/welcome.component';
+import {RouterModule, Routes} from '@angular/router';
+import {SharedModule} from '@app/shared/shared.module';
+import {CoreModule} from '@app/core/core.module';
+import {HomeComponent} from './home.component';
+import {WelcomeComponent} from '../welcome/welcome.component';
 
 const routes: Routes = [{
   path: '',
   component: HomeComponent,
-  data: { title: 'Home' },
+  data: {title: 'Home'},
 }, {
   path: 'welcome',
   component: WelcomeComponent,
-  data: { title: 'Welcome' },
-}]
+  data: {title: 'Welcome'},
+}];
 
 @NgModule({
   declarations: [
@@ -32,4 +32,5 @@ const routes: Routes = [{
   bootstrap: [HomeComponent]
 })
 
-export class HomeModule { }
+export class HomeModule {
+}

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SharingService } from '@app/services/sharing.service';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SharingService} from '@app/services/sharing.service';
 
 @NgModule({
   declarations: [
