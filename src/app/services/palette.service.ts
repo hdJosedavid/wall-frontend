@@ -1,21 +1,23 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
-import {Bulletin} from './interfaces';
-import {data2} from './initial-data/bulletin.data';
+import {Palette} from './interfaces';
+import {data} from './initial-data/palette.data';
 
 @Injectable()
 export class PaletteService {
-    public sharingObservable: BehaviorSubject<Array<Bulletin>>;
+    public paletteBehavior: BehaviorSubject<Palette>;
+
     constructor() {
-        this.sharingObservable = new BehaviorSubject<Array<Bulletin>>(data2);
+        this.paletteBehavior = new BehaviorSubject<Palette>(data);
+
     }
 
     public get getSharingObservable() {
-        return this.sharingObservable.asObservable();
+        return this.paletteBehavior.asObservable();
     }
 
-    public set sharingObservableData(data: Array<Bulletin>) {
-        this.sharingObservable.next(data);
+    set setPaletteObservable(data: Palette) {
+        this.paletteBehavior.next(data);
     }
 }

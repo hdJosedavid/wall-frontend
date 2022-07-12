@@ -1,2 +1,3 @@
+import {Palette} from "@app/services/interfaces";
 
-export const data: ColorPalette = 'default';
+export const data: Palette = {color: 'default'};
