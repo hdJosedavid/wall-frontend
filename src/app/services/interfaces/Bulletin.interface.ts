@@ -1,5 +1,5 @@
-import {Reactions} from "./Reactions";
-import {Items} from "./Items";
+import {Reactions} from "./Reactions.interface";
+import {Items} from "./Items.interface";
 
 export interface Bulletin {
   content: string,

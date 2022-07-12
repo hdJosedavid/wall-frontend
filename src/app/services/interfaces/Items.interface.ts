@@ -1,4 +1,4 @@
-import {Reactions} from "./Reactions";
+import {Reactions} from "./Reactions.interface";
 
 export interface Items {
   content: string,
