@@ -1,5 +1,5 @@
-import { Reactions } from "./Reactions";
-import { Items } from "./Items";
+import {Reactions} from "./Reactions";
+import {Items} from "./Items";
 
 export interface Bulletin {
   content: string,
@@ -8,5 +8,5 @@ export interface Bulletin {
   text: string,
   name: string,
   reactions: Reactions,
-  items: Items
+  // items: Items []
 }

@@ -1,21 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-media-comment-footer',
   templateUrl: './media-comment-footer.component.html',
-  styleUrls: ['./media-comment-footer.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
-export class MediaCommentFooterComponent implements OnInit {
+export class MediaCommentFooterComponent {
 
   @Input() reactions: any = {};
 
   public commentaries: number = 0;
   public loves: number = 0;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
 }

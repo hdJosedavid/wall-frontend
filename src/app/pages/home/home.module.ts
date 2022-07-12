@@ -26,7 +26,6 @@ const routes: Routes = [{
     RouterModule.forChild(routes),
     CommonModule,
     SharedModule,
-    CoreModule
   ],
   providers: [],
   bootstrap: [HomeComponent]
