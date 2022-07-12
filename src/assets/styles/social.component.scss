@@ -52,14 +52,12 @@ $transition: 1.25s;
     transition: .25s ease;
     border-radius: 8px;
 
-    box-shadow:
-      inset 2px 2px 4px $neu-2,
-      inset -2px -2px 4px $white;
+    box-shadow: inset 2px 2px 4px $neu-2,
+    inset -2px -2px 4px $white;
 
     &:focus {
-      box-shadow:
-        inset 4px 4px 4px $neu-2,
-        inset -4px -4px 4px $white;
+      box-shadow: inset 4px 4px 4px $neu-2,
+      inset -4px -4px 4px $white;
     }
   }
 

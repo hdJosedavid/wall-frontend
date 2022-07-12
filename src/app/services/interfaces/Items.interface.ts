@@ -1,4 +1,4 @@
-import { Reactions } from "./Reactions";
+import {Reactions} from "./Reactions.interface";
 
 export interface Items {
   content: string,
@@ -7,4 +7,7 @@ export interface Items {
   text: string,
   name: string,
   reactions: Reactions,
+}
+
+export interface Items extends Array<Items> {
 }

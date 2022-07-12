@@ -1,15 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-post-news',
   templateUrl: './post-news.component.html',
-  styleUrls: ['./post-news.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
-export class PostNewsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class PostNewsComponent {
 
 }

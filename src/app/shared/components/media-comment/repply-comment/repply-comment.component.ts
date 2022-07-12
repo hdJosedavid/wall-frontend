@@ -1,15 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-repply-comment',
   templateUrl: './repply-comment.component.html',
-  styleUrls: ['./repply-comment.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
-export class RepplyCommentComponent implements OnInit {
-  @Input() items: any[] = [];
-  constructor() { }
+export class RepplyCommentComponent{
 
-  ngOnInit(): void {
-  }
+  @Input() items: any[] = [];
+
+  constructor() { }
 
 }

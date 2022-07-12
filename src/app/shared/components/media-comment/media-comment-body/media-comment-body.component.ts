@@ -1,15 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-media-comment-body',
   templateUrl: './media-comment-body.component.html',
-  styleUrls: ['./media-comment-body.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
-export class MediaCommentBodyComponent implements OnInit {
-  @Input() data: any = {}
-
-  constructor() { }
-
-  ngOnInit(): void { }
+export class MediaCommentBodyComponent {
+  @Input() data: any = {};
 
 }

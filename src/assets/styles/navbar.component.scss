@@ -5,17 +5,15 @@ $danger: #E36289;
 
 nav {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   background: #ecf0f3;
   width: 100%;
   padding: 12px 0;
-  background: #ecf0f3;
   box-shadow: -3px -3px 7px #ffffff,
-    3px 3px 5px #ceced1,
-    inset -3px -3px 7px #ffffff,
-    inset 3px 3px 5px #ceced1;
+  3px 3px 5px #ceced1,
+  inset -3px -3px 7px #ffffff,
+  inset 3px 3px 5px #ceced1;
 }
 
 nav .menu {
@@ -49,7 +47,7 @@ nav .menu {
   padding: 10px 12px;
   border-radius: 10px;
   box-shadow: -3px -3px 7px #ffffff,
-    3px 3px 5px #ceced1;
+  3px 3px 5px #ceced1;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -85,7 +83,7 @@ nav .menu {
   color: #31344b;
 }
 
-.menu ul a:hover{
+.menu ul a:hover {
   color: $primary;
   font-weight: bold;
 }
@@ -107,7 +105,7 @@ nav label.cancel {
   display: none;
 }
 
-@media (max-width:940px) {
+@media (max-width: 940px) {
   .menu ul {
     display: block;
     position: fixed;
@@ -140,15 +138,15 @@ nav label.cancel {
     display: block;
   }
 
-  #check:checked~label.bars {
+  #check:checked ~ label.bars {
     display: none;
   }
 
-  #check:checked~ul label.cancel {
+  #check:checked ~ ul label.cancel {
     display: block;
   }
 
-  #check:checked~ul {
+  #check:checked ~ ul {
     left: 0;
   }
 }

@@ -2,13 +2,12 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
-import {CookieService} from 'ngx-cookie-service';
 
 import {AppRoutingModule} from './app.routing';
 import {AppComponent} from './app.component';
 import {BusinessComponent} from './layouts/business/business.component';
 import {SystemComponent} from './layouts/system/system.component';
-import {RestService} from "@app/services/rest.service";
+import {CoreModule} from "@app/core/core.module";
 
 @NgModule({
   declarations: [
@@ -21,11 +20,10 @@ import {RestService} from "@app/services/rest.service";
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
+    CoreModule,
   ],
-  providers: [
-    CookieService,
-    RestService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

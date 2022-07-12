@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
@@ -9,6 +9,7 @@ import {catchError, map, retry} from 'rxjs/operators';
 
 import {environment} from '@environment/environment'
 import {SOCIAL_TYPES} from '@app/shared/constants/social';
+import {AuthService} from "@app/services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -20,26 +21,28 @@ export class LoginComponent implements OnInit {
   public status: boolean = true;
   public networks: string[] = [];
 
-  // TODO: Adding firstName and Lastname
-  public signUpForm: FormGroup = this.formBuilder.group({
-    username: [, [Validators.required, Validators.minLength(5)]],
-    email: [, [Validators.required, Validators.minLength(8), Validators.email]],
-    password: [, [Validators.required, Validators.minLength(5)]],
-  });
-
-  public loginForm: FormGroup = this.formBuilder.group({
-    username: [, [Validators.required]],
-    password: [, [Validators.required, Validators.minLength(5)]],
-  })
-
-
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
     private cookieService: CookieService,
     private localStorageService: LocalStorageService,
     private RestService: RestService,
-    private router: Router
-  ) { }
+    private authService: AuthService
+  ) {
+  }
+
+  // TODO: Add firstName and LastName
+  public signUpForm: FormGroup = this.formBuilder.group({
+    username: ['', [Validators.required, Validators.minLength(5)]],
+    email: ['', [Validators.required, Validators.minLength(8), Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(5)]],
+  });
+
+
+  public loginForm: FormGroup = this.formBuilder.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(5)]],
+  });
 
   ngOnInit(): void {
     this.networks = [
@@ -78,11 +81,12 @@ export class LoginComponent implements OnInit {
     ).subscribe((res: any) => {
       this.cookieService.set('token_access', res.authenticationToken, 4, '/home');
       this.localStorageService._setCredentials(res);
+      this.authService.login();
       this.router.navigate(['/home']);
     });
   };
 
-  public changeForm = (e: any) => {
+  changeForm = (e: any) => {
     this.status = !this.status;
   }
 }

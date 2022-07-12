@@ -3,6 +3,7 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   CanDeactivate,
+  CanLoad,
   Router,
   RouterStateSnapshot,
   UrlTree
@@ -10,13 +11,15 @@ import {
 import {LocalStorageService} from '@app/services/local-storage.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Observable} from 'rxjs';
+import {AuthService} from "@app/services/auth.service";
 
 @Injectable({providedIn: 'root'})
-export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
+export class CredentialGuard implements CanActivate, CanDeactivate<unknown>, CanLoad {
 
   constructor(
     private cookieService: CookieService,
     private localStorageService: LocalStorageService,
+    private authService: AuthService,
     private router: Router
   ) {
   }
@@ -25,8 +28,7 @@ export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const storage = JSON.parse(this.localStorageService._getTokenID());
-    return storage !== null && storage.authenticationToken !== null;
+    return this.checkLogging(state.url);
   }
 
   canDeactivate(
@@ -39,6 +41,22 @@ export class CredentialGuard implements CanActivate, CanDeactivate<unknown> {
     const cookie = this.cookieService.check('token_access');
     this.redirect(cookie, '/home');
     return true
+  }
+
+  canLoad(
+    route: import("@angular/router").Route,
+    segments: import("@angular/router").UrlSegment[]
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const url = `/${route.path}`;
+    return this.checkLogging(url);
+  }
+
+  checkLogging(url: string) {
+    if (this.authService.isLoggedIn(url)) {
+      return true;
+    }
+    this.router.navigate(['/login']);
+    return false;
   }
 
   redirect(flag: boolean, path: string): any {

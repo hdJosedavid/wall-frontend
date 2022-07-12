@@ -71,9 +71,9 @@
           7.7070312 A 1.0001 1.0001 0 0 0 19.980469 5.9902344 z"></path>
     </svg>
     </a>
-    <form (ngSubmit)="setBulletin()" autocomplete="off" class="send" [formGroup]="bulletinForm">
-        <input formControlName="message" class="send-input" type="text" placeholder="Message">
-        <button type="submit" class="send-button" [disabled]="bulletinForm.invalid">
+    <form (ngSubmit)="_setBulletin()" autocomplete="off" class="form-send" [formGroup]="bulletinForm">
+        <input formControlName="body" class="form-send__send-input" type="text" placeholder="Message">
+        <button type="submit" class="form-send__send-button" [disabled]="bulletinForm.invalid">
       Send
     </button>
     </form>
