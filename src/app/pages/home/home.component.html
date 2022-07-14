@@ -1,29 +1,36 @@
 <app-navbar></app-navbar>
 <!-- <app-post-news></app-post-news> -->
-<main data-theme="'{data-theme}'" [ngClass]="theme ? '': 'dark-theme'">
-  <article class="comment-wrapper">
-    <section class="container">
-      <div class="center-block">
-        <div class="box-theme-option">
-          <div class="box-theme-option-inner">
-            <div class="addonz-form-inline">
-              <label class="addonz-switch">
-                <input (click)="changeTheme()" class="addonz-switch-input dark" type="checkbox"/>
-                <span class="addonz-switch-inner">{{nameTheme}}</span>
-              </label>
+<main data-theme="default" [ngClass]="theme ? '': 'dark-theme'">
+    <article class="comment-wrapper">
+        <section class="container">
+            <div class="center-block">
+                <div class="box-theme-option">
+                    <div class="form-send" (click)="activeAPI()">
+                      <svg class="form-send__send-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h-3.025l5 6.625 5-6.625h-2.975c.257-3.351 3.06-6 6.475-6 3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5c-1.863 0-3.542-.793-4.728-2.053l-2.427 3.216c1.877 1.754 4.389 2.837 7.155 2.837 5.79 0 10.5-4.71 10.5-10.5s-4.71-10.5-10.5-10.5z"></path>
+                      </svg>
+<!--                      <button (click)="activeAPI()" class="form-send__send-button" type="button">-->
+<!--                        </button>-->
+                    </div>
+                    <div class="box-theme-option-inner">
+                        <div class="addonz-form-inline">
+                            <label class="addonz-switch">
+                                <input (click)="changeTheme()" class="addonz-switch-input dark" type="checkbox"/>
+                                <span class="addonz-switch-inner">{{nameTheme}}</span>
+                            </label>
+                        </div>
+                        <app-color-palette></app-color-palette>
+                    </div>
+                </div>
             </div>
-            <app-color-palette></app-color-palette>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="container">
-<!--      {{ data$ | async | json }}-->
-      <div class="center-block" *ngFor="let data of bulletins">
-        <app-media-comment [data]='data'></app-media-comment>
-      </div>
-      <app-spinner></app-spinner>
-    </section>
-  </article>
+        </section>
+        <section class="container">
+            <!--      {{ data$ | async | json }}-->
+            <div class="center-block" *ngFor="let data of data$ | async">
+                <app-media-comment [data]='data'></app-media-comment>
+            </div>
+            <app-spinner></app-spinner>
+        </section>
+    </article>
 </main>
 <app-footer></app-footer>

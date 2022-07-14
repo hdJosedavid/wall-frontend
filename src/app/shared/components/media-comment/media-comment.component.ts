@@ -7,8 +7,11 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
 })
 export class MediaCommentComponent {
   @Input() data: any = {};
-
   public toggle: boolean = false;
+
+  constructor(){
+    console.log(3333, this.data);
+  }
 
   swToggle(): void {
     this.toggle = !this.toggle;

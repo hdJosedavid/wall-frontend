@@ -36,9 +36,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/styles/navbar.component.scss",
-              "src/assets/styles/color-palette.component.scss",
-              "src/assets/styles/social.component.scss"
+              "src/assets/styles/main.component.scss"
             ],
             "scripts": []
           },

@@ -10,7 +10,6 @@ export class PaletteService {
 
     constructor() {
         this.paletteBehavior = new BehaviorSubject<Palette>(data);
-
     }
 
     public get getSharingObservable() {

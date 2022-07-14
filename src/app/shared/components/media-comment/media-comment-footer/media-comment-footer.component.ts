@@ -1,9 +1,10 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-media-comment-footer',
   templateUrl: './media-comment-footer.component.html',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MediaCommentFooterComponent {
 
