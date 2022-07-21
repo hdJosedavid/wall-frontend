@@ -50,10 +50,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private _initialData() {
-    console.log(37462387462384);
     this.changeDetectorRef.detach();
     this.data$.subscribe(resp => {
-      console.log(66666, resp);
     });
     this._getBulletin();
     this.subs2$ = this.palette$.subscribe((res: any) => {
@@ -68,7 +66,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       )
     ).subscribe((response: any) => {
       this.bulletins = this.dataUpdate(response);
-      this.sharingService.sharingObservableData = this.dataUpdate(response);
+      this.sharingService.sharingObservableData = [...this.dataUpdate(response)];
       this.changeDetectorRef.detectChanges();
     });
   }

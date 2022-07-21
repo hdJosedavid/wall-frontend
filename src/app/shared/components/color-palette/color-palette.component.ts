@@ -29,7 +29,6 @@ export class ColorPaletteComponent implements OnDestroy {
     this.bulletinForm.value.accountId = 1;
     this.bulletinForm.value.content = '';
     this.bulletinForm.value.createdDate = new Date();
-    console.log(2342342);
     this.subs$ = this.restService.post(
       `${environment.apiBlog}/bulletins`,
       this.bulletinForm.value

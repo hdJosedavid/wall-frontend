@@ -8,8 +8,5 @@ import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@ang
 })
 export class MediaCommentBodyComponent {
   @Input() data: any = {};
-  constructor(){
-    console.log(7575757, this.data);
-  }
 
 }
